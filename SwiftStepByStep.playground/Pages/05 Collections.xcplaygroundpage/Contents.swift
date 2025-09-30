@@ -26,3 +26,11 @@ print("Bag:", bag, "| sortedNames:", sortedNames, "| top:", topScore)
 // TODO: Crea un array con al menos 5 nombres de compañeros de clase.
 // Añade un nuevo nombre al array.
 // Después imprime el primer y el último elemento del array.
+
+var nombres = ["paula", "nora", "unai", "noah", "lucia"]
+nombres.append("Alexa")
+//nombres.insert("alexa", at: 6)
+
+print("primer nombre: ",nombres.first!)
+print("ultimo nombre: ",nombres.last!)
+
