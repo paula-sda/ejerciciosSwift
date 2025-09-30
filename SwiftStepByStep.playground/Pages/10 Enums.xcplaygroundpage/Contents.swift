@@ -12,6 +12,8 @@ enum NetworkState {
     case loading
     case success(data: String)
     case failure(code: Int, message: String)
+    case redirect(url: String)
+    
 }
 
 // Función que recibe un NetworkState y muestra por pantalla un mensaje distinto
@@ -26,6 +28,8 @@ func render(_ state: NetworkState) {
         print("Success with data:", data) // Mostramos los datos recibidos
     case .failure(let code, let message):
         print("Error \(code):", message) // Mostramos código y mensaje de error
+   case .redirect(url: let url):
+        print("Redirected to:", url)
     }
 }
 
@@ -34,7 +38,7 @@ render(.idle)                        // Idle
 render(.loading)                     // Loading...
 render(.success(data: "Hello"))      // Success with data: Hello
 render(.failure(code: 404, message: "Not Found")) // Error 404: Not Found
-
+render(.redirect(url: "https://hola.com"))
 // ------------------------------------------------------------
 // 🧪 Mini-reto
 // ------------------------------------------------------------
