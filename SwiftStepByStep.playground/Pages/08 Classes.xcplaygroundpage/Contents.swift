@@ -19,3 +19,12 @@ print("\(a.name) dice \(a.sound())")
 // TODO: Crea una subclase `Cat` con el método `sound()` que devuelva "Miau".
 // Crea un array [Animal] que contenga un Dog y un Cat
 // y recorre el array imprimiendo cada sonido mediante polimorfismo.
+
+class Cat: Animal {
+    override func sound() -> String { "Miau" }
+}
+let cat = Cat(name: "Michi")
+let animals: [Animal] = [a, cat]
+for animal in animals {
+    print("\(animal.name) dice \(animal.sound())")
+}

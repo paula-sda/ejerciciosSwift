@@ -38,3 +38,14 @@ print(s.describe()) // Estudiante(1) Iker
 // ------------------------------------------------------------
 // TODO: Crea un nuevo tipo `Course` que adopte el protocolo Describable.
 // Debe imprimir algo como: "Curso(iOS) créditos: 6".
+
+struct Course: Describable {
+    let name: String
+    let credits: Int
+    
+    var shortDescription: String {
+        return "Curso(\(name)) créditos: \(credits)"
+    }
+}
+let course = Course(name: "iOS", credits: 6)
+print(course.describe())

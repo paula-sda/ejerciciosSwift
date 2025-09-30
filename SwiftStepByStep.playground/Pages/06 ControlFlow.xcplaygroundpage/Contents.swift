@@ -24,3 +24,24 @@ for age in [5, 16, 30, 88] {
 // y "FizzBuzz" si es divisible por ambos.
 // 💡 Pista: usa el operador % (módulo) para saber si un número es divisible.
 // Ejemplo: 6 % 3 == 0 significa que 6 es divisible entre 3.
+
+func fizzbuzz(for n: Int) -> String {
+    guard n >= 0 else {
+        return "Invalid number"
+    }
+    var output = ""
+    for i in 1...n {
+        switch i {
+        case i % 3: output += "Buzz"
+        case i % 5: output += "Fizz"
+        case i % 3 & i % 5: output += "FizzBuzz"
+        default: output += "No Fizzbuzz"
+        }
+    }
+    return output
+}
+
+print(fizzbuzz(for: 15))
+
+
+

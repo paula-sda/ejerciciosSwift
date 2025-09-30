@@ -3,6 +3,10 @@ struct Counter {
     private(set) var value: Int = 0 //privada, no se puede editar desde fuera
     mutating func increment() { value += 1 } //mutating indica que el método cambiar el valor de la estructura
     mutating func add(_ n: Int) { value += n }
+    
+    mutating func reset() {
+            value = 0
+        }
 }
 
 var c1 = Counter()
@@ -13,6 +17,9 @@ print("Counter c1:", c1.value)
 var c2 = c1 // value copy
 c2.increment()
 print("c1:", c1.value, "c2:", c2.value)
+
+c1.reset()
+print("Counter c1 after reset:", c1.value)
 
 
 // ------------------------------------------------------------
