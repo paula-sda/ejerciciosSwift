@@ -32,10 +32,10 @@ func fizzbuzz(for n: Int) -> String {
     var output = ""
     for i in 1...n {
         switch i {
-        case i % 3: output += "Buzz"
-        case i % 5: output += "Fizz"
-        case i % 3 & i % 5: output += "FizzBuzz"
-        default: output += "No Fizzbuzz"
+        case i % 3: output += " Buzz "
+        case i % 5: output += " Fizz "
+        case i % 3 & i % 5: output += "FizzBuzz "
+        default: output += " NoFizzbuzz "
         }
     }
     return output
