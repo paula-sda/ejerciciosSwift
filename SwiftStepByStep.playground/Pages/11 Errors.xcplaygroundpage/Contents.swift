@@ -37,3 +37,25 @@ print("try? result:", maybeN as Any) // nil
 // TODO: Crea un enum de error `FormError` con un caso `emptyName`.
 // Escribe una función `validate(name:)` que lance ese error si la cadena está vacía;
 // en caso contrario debe devolver el nombre con espacios eliminados al principio y al final.
+
+enum FormError: Error {
+    case emptyName
+}
+
+func validate(name: String) throws -> String {
+    guard !name.isEmpty else { throw FormError.emptyName }
+    return name
+}
+do {
+    let validName = try validate(name: "Iker")
+    print("Nombre válido:", validName)
+} catch FormError.emptyName {
+    print("Error: El nombre está vacío")
+}
+
+do {
+    let validName = try validate(name: "")
+    print("Nombre válido:", validName)
+} catch FormError.emptyName {
+    print("Error: El nombre está vacío")
+}
