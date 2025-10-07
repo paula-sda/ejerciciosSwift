@@ -39,3 +39,28 @@ print("Reference semantics -> rb1:", rb1.items, "| rb2:", rb2.items)
 // TODO: Crea una función `appendC(to:)` que añada "C" a un Bag y lo devuelva.
 // Muestra que el original no se modifica (semántica de valor).
 // Haz lo mismo con RefBag y aprecia la diferencia.
+
+func appendC(to bag: Bag) -> Bag {
+    var newBag = bag       
+    newBag.items.append("C")
+    return newBag
+}
+
+var myBag = Bag(items: ["A", "B"])
+let newBag = appendC(to: myBag)
+
+print("My bag:", myBag.items)  
+print("New bag:", newBag.items) 
+
+
+func appendC(to refBag: RefBag) -> RefBag {
+    refBag.items.append("C")
+    return refBag
+}
+
+let originalRefBag = RefBag()
+originalRefBag.items = ["A", "B"]
+let modifiedRefBag = appendC(to: originalRefBag)
+
+print("Original RefBag:", originalRefBag.items)  
+print("Modified RefBag:", modifiedRefBag.items)  
